@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB\PCB\Source.cpp(19,40): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB\PCB\Source.cpp(24,34): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  PCB.vcxproj -> C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB\x64\Debug\PCB.exe

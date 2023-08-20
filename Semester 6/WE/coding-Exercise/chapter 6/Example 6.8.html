@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+
+        var name; // string entered by the user
+        var now = new Date();// current date and time
+        var hour = now.getHours();// current hour (0-23)
+   
+        // function greetuser(){
+    // read the name from the prompt box as a string
+    // function greetuser(){
+        name = window.prompt( "Please enter your name" );
+
+         // determine whether it’s morning
+    if(hour<12){
+        document.write( "<h1>Good Morning, " );
+ }
+ // determine whether the time is PM
+    if(hour>=12){
+
+    // convert to a 12-hour clock
+    hour = hour -12;
+    if(hour<6){
+    document.write( "<h1>Good Afternoon, " );
+
+ }
+ // determine whether it is after 6 PM
+if(hour>6){
+    document.write( "<h1>Good Evening, " );
+
+   
+    }
+    }
+ // determine whether it is before 6 PM
+ 
+    document.writeln( name +", welcome to JavaScript programming!</h1>" );
+
+// }
+
+
+   
+  // end if
+        // }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

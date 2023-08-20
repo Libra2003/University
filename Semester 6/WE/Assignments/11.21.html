@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three-Letter Words Generator</title>
+  <script>
+    function generateThreeLetterWords() {
+      var word = prompt("Enter a five-letter word:");
+
+      if (word.length !== 5) {
+        alert("Please enter a five-letter word.");
+      } else {
+        var threeLetterWords = generateThreeLetterWordsArray(word);
+        displayResults(threeLetterWords);
+      }
+    }
+
+    function generateThreeLetterWordsArray(word) {
+      var results = [];
+
+      for (var i = 0; i < word.length; i++) {
+        for (var j = 0; j < word.length; j++) {
+          for (var k = 0; k < word.length; k++) {
+            if (i !== j && i !== k && j !== k) {
+              var threeLetterWord = word[i] + word[j] + word[k];
+              results.push(threeLetterWord);
+            }
+          }
+        }
+      }
+
+      return results;
+    }
+
+    function displayResults(results) {
+      var textarea = document.getElementById("resultsTextarea");
+      textarea.value = results.join("\n");
+    }
+  </script>
+</head>
+<body>
+  <h1>Three-Letter Words Generator</h1>
+  <button onclick="generateThreeLetterWords()">Generate</button>
+  <br>
+  <textarea id="resultsTextarea" rows="10" cols="30" readonly></textarea>
+</body>
+</html>

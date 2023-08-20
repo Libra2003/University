@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(28,24): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(36,19): warning C4267: '+=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(125,39): warning C4101: 'wait_end': unreferenced local variable
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(125,28): warning C4101: 'wait_stat': unreferenced local variable
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(149,39): warning C4101: 'wait_end': unreferenced local variable
+C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\PCB(1)\Source.cpp(149,28): warning C4101: 'wait_stat': unreferenced local variable
+  PCB(1).vcxproj -> C:\Users\pak\Desktop\Semester 5\OS\OS Assignment\PCB(1)\x64\Debug\PCB(1).exe

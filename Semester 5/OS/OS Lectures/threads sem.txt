@@ -1,0 +1,93 @@
+#include <thread> 
+#include <stdio.h>
+#include <sys/sem.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <iostream>
+  int semid;
+  struct sembuf sb[1];
+  
+  void V(){
+      
+      /* build semaphore operations structure */
+      sb[0].sem_num = 0;		/*semaphore number,0 for first semaphore */
+      sb[0].sem_op = 1;		/* operation +1 means release semaphore */
+      sb[0].sem_flg = 0;		/* operation flags */
+
+      //printf ("semacq: Releasing a semaphore %d\n", semid);
+      /* Release the semaphore */
+
+      if (semop (semid, sb, 1) == -1)
+	{
+	  printf ("semacq: semop failed.\n");
+	  _exit (-1);
+	}
+      //printf ("semacq: Semaphore released %d\n", semid);
+
+  }
+  
+  void P(){
+      
+        
+      /* build semaphore operations structure */
+      sb[0].sem_num = 0;		/*semaphore number,0 for first semaphore */
+      sb[0].sem_op = -1;		/* operation -1 means acquire semaphore */
+      sb[0].sem_flg = 0;		/* operation flags */
+
+      //printf ("semacq: Attempting to acquire semaphore %d\n", semid);
+      /* Acquire the semaphore */
+      if (semop (semid, sb, 1) == -1)
+	{
+/* if the value of a semaphore is 0 this will wait until it becomes > 0 */
+	  printf ("semacq: semop failed.\n");
+	  _exit (-1);
+	}
+      //printf ("semacq: Semaphore acquired %d\n", semid);
+  }
+  
+  void foo() 
+{
+    for(int i = 1; i<20;i++){
+        sleep( 1 );   
+        P();
+        printf("\n Consumed %d",i);
+    }
+}
+
+void bar()
+{
+    for(int i = 1; i<20;i++){
+        sleep( 2 );
+        printf("\n Produced %d",i);
+        V();
+    }
+}
+  
+int main ()
+{
+  /* Get the semaphore with the key 1234 */
+  semid = semget(1234, 1, IPC_CREAT | IPC_EXCL | S_IRUSR |
+            S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+  if (semid >= 0)
+    {
+        
+        printf("semaphore id: %d \n",semid);
+       
+       std::thread first (foo);     // spawn new thread that calls foo()
+          std::thread second (bar);  // spawn new thread that calls bar(0)
+        
+          std::cout << "\nmain, foo and bar now execute concurrently...\n";
+        
+          // synchronize threads:
+          first.join();                // pauses until first finishes
+          second.join();               // pauses until second finishes
+        
+          std::cout << "\nfoo and bar completed.\n";
+        
+          return 0;
+
+ 
+
+    }
+  return 0;
+}

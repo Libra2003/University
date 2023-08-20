@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Library Functions</title>
+  <script>
+    function testMathFunctions() {
+      var output = document.getElementById("output");
+
+      function displayResult(funcName, args) {
+        var result = Math[funcName].apply(null, args);
+        var argString = args.join(", ");
+        var row = "<tr><td>" + funcName + "(" + argString + ")</td><td>" + result + "</td></tr>";
+        output.innerHTML += row;
+      }
+
+      // Test abs()
+      displayResult("abs", [7.2]);
+      displayResult("abs", [0]);
+      displayResult("abs", [-5.6]);
+
+      // Test ceil()
+      displayResult("ceil", [9.2]);
+      displayResult("ceil", [-9.8]);
+
+      // Test cos()
+      displayResult("cos", [0]);
+
+      // Test exp()
+      displayResult("exp", [1]);
+      displayResult("exp", [2]);
+
+      // Test floor()
+      displayResult("floor", [9.2]);
+      displayResult("floor", [-9.8]);
+
+      // Test log()
+      displayResult("log", [2.718282]);
+      displayResult("log", [7.389056]);
+
+      // Test max()
+      displayResult("max", [2.3, 12.7]);
+      displayResult("max", [-2.3, -12.7]);
+
+      // Test min()
+      displayResult("min", [2.3, 12.7]);
+      displayResult("min", [-2.3, -12.7]);
+
+      // Test pow()
+      displayResult("pow", [2, 7]);
+      displayResult("pow", [9, 0.5]);
+
+      // Test round()
+      displayResult("round", [9.75]);
+      displayResult("round", [9.25]);
+
+      // Test sin()
+      displayResult("sin", [0]);
+
+      // Test sqrt()
+      displayResult("sqrt", [900]);
+      displayResult("sqrt", [9]);
+
+      // Test tan()
+      displayResult("tan", [0]);
+    }
+  </script>
+</head>
+<body>
+  <h1>Math Library Functions</h1>
+  <button onclick="testMathFunctions()">Test Functions</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Function</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody id="output"></tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom lastIndexOf Method</title>
+</head>
+<body>
+  <h2>Custom lastIndexOf Method</h2>
+
+  <p id="output"></p>
+
+  <script>
+    // Custom implementation of lastIndexOf method for strings
+    String.prototype.customLastIndexOf = function (searchValue, fromIndex) {
+      // Convert the string to an array
+      var arr = Array.from(this);
+
+      // Set the default value of fromIndex
+      fromIndex = fromIndex || arr.length - 1;
+
+      // Iterate through the array in reverse
+      for (var i = fromIndex; i >= 0; i--) {
+        // Check if the current element matches the search value
+        if (arr[i] === searchValue) {
+          return i;
+        }
+      }
+
+      return -1; // If the search value is not found
+    };
+
+    // Example usage
+    var sentence = "The quick brown fox jumps over the lazy dog.";
+    var searchValue = "o";
+
+    var lastIndex = sentence.customLastIndexOf(searchValue);
+    var output = document.getElementById("output");
+    output.textContent = "Last index of '" + searchValue + "' in the sentence is: " + lastIndex;
+  </script>
+</body>
+</html>

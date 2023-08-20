@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\pak\Desktop\Semester 6\IS\Assignment\Assignment2\Assignment2\Assignment2\Source.cpp(20,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Assignment2.vcxproj -> C:\Users\pak\Desktop\Semester 6\IS\Assignment\Assignment2\Assignment2\x64\Debug\Assignment2.exe

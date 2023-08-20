@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Form</title>
+  </head>
+  <body>
+    <h1>Prospective College Students Feedback Form</h1>
+    <form action="http://www.deitel.com" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label>What did you like most about the campus?</label><br>
+      <input type="checkbox" id="campus" name="liked" value="campus">
+      <label for="campus">Campus</label><br>
+      <input type="checkbox" id="students" name="liked" value="students">
+      <label for="students">Students</label><br>
+      <input type="checkbox" id="location" name="liked" value="location">
+      <label for="location">Location</label><br>
+      <input type="checkbox" id="atmosphere" name="liked" value="atmosphere">
+      <label for="atmosphere">Atmosphere</label><br>
+      <input type="checkbox" id="dorm_rooms" name="liked" value="dorm_rooms">
+      <label for="dorm_rooms">Dorm Rooms</label><br>
+      <input type="checkbox" id="sports" name="liked" value="sports">
+      <label for="sports">Sports</label><br>
+      <label>How did you become interested in the college?</label><br>
+      <input type="radio" id="friends" name="interest" value="friends" required>
+      <label for="friends">Friends</label><br>
+      <input type="radio" id="tv" name="interest" value="television">
+      <label for="tv">Television</label><br>
+      <input type="radio" id="internet" name="interest" value="internet">
+      <label for="internet">Internet</label><br>
+      <input type="radio" id="other" name="interest" value="other">
+      <label for="other">Other</label><br>
+      <label for="comments">Additional Comments:</label><br>
+      <textarea id="comments" name="comments"></textarea><br>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+  </body>
+</html>

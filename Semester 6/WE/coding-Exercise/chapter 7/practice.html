@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>Star Academy Registration Form</title>
+    <script>
+    //Function to check if a field is empty
+    function checkEmpty(field) {
+        //Check if the value of field is empty string
+        if (field.value.trim() == "") {
+            //Display error message
+            alert("This field is required!");
+            //Set focus on the field
+            field.focus();
+            //Return false
+            return false;
+        }
+        //Return true
+        return true;
+    }
+
+    //Function to check if an email address is valid
+    function checkEmail(field) {
+        //Regex to check if the email address is valid
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        //Check if the value of field matches the regex
+        if (!regex.test(field.value)) {
+            //Display error message
+            alert("Please enter a valid email address!");
+            //Set focus on the field
+            field.focus();
+            //Return false
+            return false;
+        }
+        //Return true
+        return true;
+    }
+
+    //Function to check if a password is valid
+    function checkPassword(field) {
+        //Regex to check if the password is valid
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+        //Check if the value of field matches the regex
+        if (!regex.test(field.value)) {
+            //Display error message
+            alert("Password must be at least 8 characters and must contain at least 1 lowercase, 1 uppercase, 1 number and 1 special character!");
+            //Set focus on the field
+            field.focus();
+            //Return false
+            return false;
+        }
+        //Return true
+        return true;
+    }
+
+    //Function to validate the form
+    function validateForm() {
+        //Get the elements
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var confirm_password = document.getElementById("confirm_password");
+
+        //Check if the fields are empty
+        checkEmpty(name);
+        checkEmpty(email);
+        checkEmpty(password);
+        checkEmpty(confirm_password);
+
+        //Check if the email address is valid
+        checkEmail(email);
+
+        //Check if the password is valid
+        checkPassword(password);
+
+        //Check if the passwords are equal
+        if (password.value != confirm_password.value) {
+            alert("Passwords do not match!");
+            return false;
+        }
+
+        //Return true
+        return true;
+    }
+    </script>
+</head>
+
+<body>
+    <form action="register.php" method="POST" onsubmit="return validateForm()">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </p>
+        <p>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password">
+        </p>
+        <p>
+            <input type="submit" value="Register">
+        </p>
+    </form>
+</body>
+
+</html>

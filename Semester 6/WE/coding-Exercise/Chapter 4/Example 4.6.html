@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Absolute Positioning</title>
+<style type = "text/css">
+.background_image { 
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    z-index: 1; 
+}
+.foreground_image { 
+    position: absolute;
+    top: 250px;
+    left: 200px;
+    z-index: 2; 
+}
+.text { 
+    position: absolute;
+    top: 25px;
+    left: 10px;
+ 
+    z-index: 3;
+}
+</style>
+</head>
+<body>
+<p><img src = "image1.jpg" class = "background_image"  ,width= 500px;
+    height= 500px;
+alt = "First positioned image" /></p>
+
+<p><img src = "image2.jpg" class = "foreground_image" width="100px" height="100px"
+alt = "Second positioned image" /></p>
+
+<p class = "text">Positioned Text</p>
+</body>

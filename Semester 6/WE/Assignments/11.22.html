@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Formats</title>
+</head>
+<body>
+  <h2>Date Formats</h2>
+
+  <form id="dateForm">
+    <label for="dateInput">Enter a date:</label>
+    <input type="date" id="dateInput">
+    <button type="button" onclick="displayDate()">Display</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    function displayDate() {
+      var dateInput = document.getElementById("dateInput").value;
+      var dateObject = new Date(dateInput);
+
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "";
+
+      // Display date in various formats
+      outputDiv.innerHTML += "Full Date: " + dateObject.toString() + "<br>";
+      outputDiv.innerHTML += "Date: " + dateObject.toDateString() + "<br>";
+      outputDiv.innerHTML += "Time: " + dateObject.toTimeString() + "<br>";
+      outputDiv.innerHTML += "Locale Date String: " + dateObject.toLocaleDateString() + "<br>";
+      outputDiv.innerHTML += "Locale Time String: " + dateObject.toLocaleTimeString() + "<br>";
+    }
+  </script>
+</body>
+</html>

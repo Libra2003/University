@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time Buttons</title>
+  <script>
+    function showAlert(message) {
+      alert(message);
+    }
+
+    function showCurrentTime() {
+      var now = new Date();
+      showAlert("Current Time and Date: " + now);
+    }
+
+    function showYesterdayTime() {
+      var yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      showAlert("Time and Date 24 Hours Ago: " + yesterday);
+    }
+
+    function showTenYearsAgoTime() {
+      var tenYearsAgo = new Date();
+      tenYearsAgo.setFullYear(tenYearsAgo.getFullYear() - 10);
+      showAlert("Time and Date Ten Years Ago: " + tenYearsAgo);
+    }
+
+    function showOneWeekFromToday() {
+      var oneWeekFromToday = new Date();
+      oneWeekFromToday.setDate(oneWeekFromToday.getDate() + 7);
+      showAlert("Time and Date One Week From Today: " + oneWeekFromToday);
+    }
+  </script>
+</head>
+<body>
+  <h1>Date and Time Buttons</h1>
+  <button onclick="showCurrentTime()">Now</button>
+  <button onclick="showYesterdayTime()">Yesterday</button>
+  <button onclick="showTenYearsAgoTime()">Ten Years Ago</button>
+  <button onclick="showOneWeekFromToday()">One Week From Today</button>
+</body>
+</html>

@@ -1,0 +1,54 @@
+; program to read a string from the user and terminate by enter key, find its length and tell if the length is even or odd
+
+.model small
+.stack 100h
+.data
+    string1    db 'Enter a string: $'
+    evenstring db 'Your string is even in length.$'
+    oddstring  db 'Your string is odd in length.$'
+    string     db 50 dup('$')
+    slen       dw 0
+.code
+    main:    
+             mov  ax, @data         ;load the data section
+             mov  ds, ax            ;load ax into data segment register
+
+             lea  dx, string1       ;ask user for a string
+             mov  ah, 9             ;service call to display a string
+             int  21h               ;call DOS to do the operation
+
+             lea  si, string        ;load starting address of string into si
+        
+    repeat:  
+             mov  ah, 1             ;promt user for string
+             int  21h               ;call DOS to do the operation
+
+             cmp  al, 13            ;if enter is pressed jump to enterkey
+             je   enterkey
+
+             mov  [si], al          ;mov the letter into si
+             inc  si                ;increment si for next letter
+             inc  slen              ;increment slen for count of length of string
+             loop repeat            ;repeat untill enter key is pressed
+
+    enterkey:
+             mov  ax, slen          ;to divide slen/bl
+             mov  bl, 2             ;to check if count is divisible by 2
+             div  bl                ;ax/bl
+             cmp  ah, 0             ;compare remainder with 0
+             je   evencase          ;if ah=0 then jump to evencase
+
+             lea  dx, oddstring     ;if count is odd then display it
+             mov  ah,9              ;service call to display a string
+             int  21h               ;call DOS to do the operation
+
+             mov  ah, 4ch           ;return control to OS
+             int  21h               ;call DOS to do the operation
+    evencase:
+             lea  dx, evenstring    ;if count is even then display it
+             mov  ah, 9             ;service NO. to display a string
+             int  21h               ;call DOS to do the operation
+
+             mov  ah, 4ch           ;return control to OS
+             int  21h               ;;call DOS to do the operation
+end main

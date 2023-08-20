@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiples of 2</title>
+</head>
+<body>
+  <h1>Multiples of 2:</h1>
+  <div id="output"></div>
+
+  <script>
+    let i = 1;
+
+    while (true) {
+      const multiple = i * 2;
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML += `<p>${multiple}</p>`;
+      i++;
+    }
+  </script>
+</body>
+</html>
